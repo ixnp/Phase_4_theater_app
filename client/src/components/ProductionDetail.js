@@ -18,11 +18,11 @@ function ProductionDetail() {
         res.json().then(data => setError(data.error))
       }
     })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    
   },[])
 
   
-  const {id, title, genre, image,description, cast_members=[]} = production
+  const {id, title, genre, image,description, cast_members} = production
   console.log(cast_members)
   if(error) return <h2>{error}</h2>
   return (
@@ -36,7 +36,7 @@ function ProductionDetail() {
               <p>{description}</p>
               <h2>Cast Members</h2>
               <ul>
-                {cast_members.map(cm => <h4>{cm.role}: {cm.name}</h4>)}
+                {cast_members.map(cm => <h4>{cm.name}: {cm.role}</h4>)}
               </ul>
             </div>
             <img alt={title} src={image}/>
